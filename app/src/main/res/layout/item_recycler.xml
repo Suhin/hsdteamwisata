@@ -49,8 +49,8 @@
             android:layout_gravity="bottom"
             android:gravity="center_vertical"
             android:textColor="#fff"
-            android:textSize="13dp"
-            android:text="25 min"
+            android:textSize="13sp"
+            android:text="20 min"
             android:layout_alignBottom="@+id/image"
             android:layout_alignParentRight="true"/>
 
