@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.pariwisatjogja.suhin_22.pariwisatjogja.DetailActivity"
+    tools:showIn="@layout/activity_detail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:paddingTop="5dp"
+            android:id="@+id/txt_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textColor="@color/colorAccent"
+            android:text="@string/tiny_text"/>
+
+        <com.bluejamesbond.text.DocumentView
+            android:id="@+id/documentView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:documentView_antialias="true"
+            app:documentView_cacheConfig="auto_quality"
+            app:documentView_hyphen="-"
+            app:documentView_lineHeightMultiplier="2.0"
+            app:documentView_maxLines="100"
+            app:documentView_offsetX="10dp"
+            app:documentView_offsetY="10dp"
+            app:documentView_insetPadding="10dp"
+            app:documentView_insetPaddingBottom="10dp"
+            app:documentView_insetPaddingLeft="5dp"
+            app:documentView_insetPaddingRight="20dp"
+            app:documentView_insetPaddingTop="10dp" />
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
