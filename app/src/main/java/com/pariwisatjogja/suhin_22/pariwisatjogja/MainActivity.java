@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
         personArrayList.add(new DataItem("Candi Plaosan", "Kokosan, Prambanan, Jawa Tengah", R.drawable.candiplaosan));
         personArrayList.add(new DataItem("Pantai Baron", "Kanigoro, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
         personArrayList.add(new DataItem("Kotagede", "Kotagede, Daerah Istimewa Yogyakarta", R.drawable.kotagede));
-        personArrayList.add(new DataItem("Goa Selarongan", "Guwosari, Pajangan, Bantul, Daerah Istimewa Yogyakarta", R.drawable.goajomblang));
+        personArrayList.add(new DataItem("Goa Selarong", "Guwosari, Pajangan, Bantul, Daerah Istimewa Yogyakarta", R.drawable.goajomblang));
 
         /*personArrayList.add(new DataItem("Goa Jomblang", "Padukuhan Jetis Wetan, Kabupaten Gunungkidul, Daerah Istimewa Yogyakarta", R.drawable.goajomblang));
         personArrayList.add(new DataItem("Taman Pintar Yogyakarta", "Jalan Senopati No.1-3, Kota Yogyakarta, Daerah Istimewa Yogyakarta", R.drawable.tamanpintar));*/
