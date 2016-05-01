@@ -65,25 +65,25 @@ public class DetailActivity extends AppCompatActivity {
             yourstring = getResources().getString(R.string.resorkaliurang_text);
             imageSet.setImageResource(R.drawable.resorkaliurang);
         }else if (name.equalsIgnoreCase("Malioboro")) {
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.malioboro_text);
             imageSet.setImageResource(R.drawable.malioboro);
         }else if (name.equalsIgnoreCase("Keraton Yogyakarta")) {
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.keraton_text);
             imageSet.setImageResource(R.drawable.kratonyogyakarta2);
         }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.museum_sonobudoyo_text);
             imageSet.setImageResource(R.drawable.museumsonobudoyo);
         }else if (name.equalsIgnoreCase("Candi Plaosan")) {
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.plaosan_text);
             imageSet.setImageResource(R.drawable.candiplaosan);
         }else if (name.equalsIgnoreCase("Pantai Baron")) {
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.baron_text);
             imageSet.setImageResource(R.drawable.pantaiparangtritis);
         }else if (name.equalsIgnoreCase("Kotagede")) {
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.kotagede_text);
             imageSet.setImageResource(R.drawable.kotagede);
         }else if (name.equalsIgnoreCase("Goa Selarong")) {
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.selarong_text);
             imageSet.setImageResource(R.drawable.goajomblang);
         }else if (name.equalsIgnoreCase("Goa Jomblang")) {
             yourstring = getResources().getString(R.string.prambanan_text);

@@ -109,28 +109,27 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                         i.putExtra("name", name.getText());
                     } else if (name.getText()=="Resor Kaliurang") {
                         i.putExtra("name", name.getText());
-                    }
-
-                    /*else if (name.getText()=="Malioboro") {
+                    } else if (name.getText()=="Malioboro") {
                         i.putExtra("name", name.getText());
-                    }else if (name.getText()=="Keraton Yogyakarta") {
+                    } else if (name.getText()=="Keraton Yogyakarta") {
                         i.putExtra("name", name.getText());
-                    }else if (name.getText()=="Museum Sonobudoyo") {
+                    } else if (name.getText()=="Museum Sonobudoyo") {
                         i.putExtra("name", name.getText());
-                    }else if (name.getText()=="Candi Plaosan") {
+                    } else if (name.getText()=="Candi Plaosan") {
                         i.putExtra("name", name.getText());
-                    }else if (name.getText()=="Pantai Baron") {
+                    } else if (name.getText()=="Pantai Baron") {
                         i.putExtra("name", name.getText());
-                    }else if (name.getText()=="Kotagede") {
+                    } else if (name.getText()=="Kotagede") {
                         i.putExtra("name", name.getText());
-                    }else if (name.getText()=="Goa Selarong") {
+                    } else if (name.getText()=="Goa Selarong") {
                         i.putExtra("name", name.getText());
-                    }else if (name.getText()=="Goa Jomblang") {
+                    }/*else if (name.getText()=="Goa Jomblang") {
                         i.putExtra("name", name.getText());
                     }else if (name.getText()=="Taman Pintar Yogyakarta") {
                         i.putExtra("name", name.getText());
-                    }
-*/                    v.getContext().startActivity(i);
+                    }*/
+
+                    v.getContext().startActivity(i);
                 }
             });
         }
