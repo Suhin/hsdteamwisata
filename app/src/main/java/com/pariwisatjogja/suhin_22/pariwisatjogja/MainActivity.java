@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.astuetz.PagerSlidingTabStrip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,17 +45,23 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
 
         toolbar.setNavigationIcon(R.mipmap.pagoda);
 
-        personArrayList = new ArrayList<>();
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
-        recyclerView = (RecyclerView)findViewById(R.id.recycle_view);
-        recyclerView.setHasFixedSize(true);
+        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip)findViewById(R.id.tabs);
+        tabs.setViewPager(pager);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        setRecyclerViewData(); //adding data to array list
-        adapter = new RecyclerAdapter(this, personArrayList);
-        recyclerView.setAdapter(adapter);
+//        personArrayList = new ArrayList<>();
+//
+//        recyclerView = (RecyclerView)findViewById(R.id.recycle_view);
+//        recyclerView.setHasFixedSize(true);
+//
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//
+//        setRecyclerViewData(); //adding data to array list
+//        adapter = new RecyclerAdapter(this, personArrayList);
+//        recyclerView.setAdapter(adapter);
 
     }
 
