@@ -33,7 +33,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
                 f = "Wisata Oleh-oleh";
                 break;
             case 5:
-                f = "Wisata Alam";
+                f = "Wisata Alamnya";
                 break;
         }
         return f;
