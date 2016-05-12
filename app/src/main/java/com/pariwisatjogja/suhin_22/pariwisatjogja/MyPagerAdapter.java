@@ -23,12 +23,24 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 f = "Wisata Museum";
                 break;
+            case 2:
+                f = "Wisata Candi";
+                break;
+            case 3:
+                f = "Wisata Kuliner";
+                break;
+            case 4:
+                f = "Wisata Oleh-oleh";
+                break;
+            case 5:
+                f = "Wisata Alam";
+                break;
         }
         return f;
     }
     @Override
     public int getCount() {
-        return 2;
+        return 6;
     }
     @Override
     public Fragment getItem(int position) {
@@ -39,6 +51,18 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
                  break;
             case 1:
                 f = new MuseumFragment();
+                break;
+            case 2:
+                f = new CandiFragment();
+                break;
+            case 3:
+                f = new KulinerFragment();
+                break;
+            case 4:
+                f = new Oleh2Fragment();
+                break;
+            case 5:
+                f = new AlamFragment();
                 break;
          }
         return f;

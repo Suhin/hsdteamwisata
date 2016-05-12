@@ -23,7 +23,7 @@ public class PantaiFragment extends Fragment {
                              Bundle savedInstanceState) {
         personArrayList = new ArrayList<>();
         RecyclerView recyclerView = (RecyclerView) inflater.inflate(
-                R.layout.fragment_pantai, container, false);
+                R.layout.fragment_tabs, container, false);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         setRecyclerViewData(); //adding data to array list

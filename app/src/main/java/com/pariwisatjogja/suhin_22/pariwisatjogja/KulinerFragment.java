@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-
-public class MuseumFragment extends Fragment {
-
+/**
+ * Created by Dias Aziz on 11/05/2016.
+ */
+public class KulinerFragment extends Fragment{
     private RecyclerAdapter adapter;
     private ArrayList<DataItem> personArrayList;
 
@@ -35,6 +36,7 @@ public class MuseumFragment extends Fragment {
         personArrayList.add(new DataItem("Candi Prambanan", "Prambanan, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
         personArrayList.add(new DataItem("Pantai Parangtritis", "Kecamatan Kretek, Bantul, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
         personArrayList.add(new DataItem("Resor Kaliurang", "Desa Hargobinangun, Kec. Pakem, Sleman, Daerah Istimewa Yogyakarta", R.drawable.resorkaliurang));
-        personArrayList.add(new DataItem("Malioboro", "Jl. Malioboro, Daerah Istimewa Yogyakarta", R.drawable.malioboro));       personArrayList.add(new DataItem("Goa Selarong", "Guwosari, Pajangan, Bantul, Daerah Istimewa Yogyakarta", R.drawable.goajomblang));
+        personArrayList.add(new DataItem("Kotagede", "Kotagede, Daerah Istimewa Yogyakarta", R.drawable.kotagede));
+        personArrayList.add(new DataItem("Goa Selarong", "Guwosari, Pajangan, Bantul, Daerah Istimewa Yogyakarta", R.drawable.goajomblang));
     }
 }
