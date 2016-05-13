@@ -44,6 +44,7 @@ import android.os.AsyncTask;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
 
+    private TextView txttitle;
     private GoogleMap mMap;
     private final String TAG = "Geolocation";
     private LocationManager locationManager;
@@ -54,6 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     ArrayList<LatLng> markerPoints;
     TextView tvDistanceDuration;
     LatLng point;
+    private LatLng lokasi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +85,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         Intent fromIn = getIntent();
         String namalokasi = fromIn.getStringExtra("namelokasi");
-        String lokasi = fromIn.getStringExtra("lokasi");
+
+
+        Bundle bundle = getIntent().getParcelableExtra("bundle");
+        lokasi = bundle.getParcelable("lokasi");
+
+        txttitle = (TextView)findViewById(R.id.title);
+        txttitle.setText(namalokasi);
+
         Toast.makeText(MapsActivity.this, namalokasi, Toast.LENGTH_LONG).show();
     }
 
@@ -344,7 +353,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 point = new LatLng(location.getLatitude(), location.getLongitude());
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 8.0f));
             } else if (i<2) {
-                point = new LatLng(-7.7557, 110.4896);
+                point = lokasi;
             }
             markerPoints.add(point);
 

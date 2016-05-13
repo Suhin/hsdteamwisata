@@ -59,8 +59,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Pantai Indrayanti");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -72,8 +76,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Pantai Parangtritis");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -85,8 +93,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Pantai Siung");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -101,8 +113,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Museum Keraton Yogyakarta");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -114,8 +130,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Museum Sonobudoyo");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -127,8 +147,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Museum Affandi");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -143,8 +167,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Candi Prambanan");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -156,8 +184,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Candi Borobudur");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -169,8 +201,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Candi Sambisari");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -185,8 +221,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "The House of Raminten");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -198,8 +238,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Gudeg Yu Djum");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -211,8 +255,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "The Kalimilk");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -226,8 +274,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Malioboro");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -239,8 +291,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Beringharjo");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });
@@ -252,8 +308,12 @@ public class DetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("lokasi", lokasi);
+
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Kasongan");
+                    i.putExtra("bundle", args);
                     DetailActivity.this.startActivity(i);
                 }
             });

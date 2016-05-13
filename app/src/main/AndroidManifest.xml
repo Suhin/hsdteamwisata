@@ -82,10 +82,7 @@
             android:name=".SpeechActivity"
             android:label="@string/title_activity_speech"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Googlestreetactivity"
-            android:label="@string/title_activity_googlestreetactivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".StreetViewActivity"
             android:label="@string/title_activity_street_view"
