@@ -33,7 +33,7 @@ public class KulinerFragment extends Fragment{
     }
 
     private void setRecyclerViewData() {
-        personArrayList.add(new DataItem("House of Raminten", "Kotabaru, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
+        personArrayList.add(new DataItem("The House of Raminten", "Kotabaru, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
         personArrayList.add(new DataItem("Gudeg Yu Djum", "Jl. Wijilan, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
         personArrayList.add(new DataItem("The Kalimilk", "Jl. Kaliurang, Daerah Istimewa Yogyakarta", R.drawable.resorkaliurang));
     }

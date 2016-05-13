@@ -12,13 +12,6 @@
     tools:context="com.pariwisatjogja.suhin_22.pariwisatjogja.StreetViewActivity"
     tools:showIn="@layout/activity_street_view">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp" />
+
 
 </RelativeLayout>

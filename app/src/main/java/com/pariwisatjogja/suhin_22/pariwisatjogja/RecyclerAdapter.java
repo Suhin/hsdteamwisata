@@ -103,31 +103,46 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), name.getText().toString(), Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(v.getContext(), DetailActivity.class);
-                    if (name.getText()=="Candi Prambanan") {
+
+                    if (name.getText()=="Pantai Indrayanti") {
                         i.putExtra("name", name.getText());
                     } else if (name.getText()=="Pantai Parangtritis") {
                         i.putExtra("name", name.getText());
-                    } else if (name.getText()=="Resor Kaliurang") {
+                    } else if (name.getText()=="Pantai Siung") {
                         i.putExtra("name", name.getText());
-                    } else if (name.getText()=="Malioboro") {
-                        i.putExtra("name", name.getText());
-                    } else if (name.getText()=="Keraton Yogyakarta") {
+                    }
+
+                    else if (name.getText()=="Museum Keraton Yogyakarta") {
                         i.putExtra("name", name.getText());
                     } else if (name.getText()=="Museum Sonobudoyo") {
                         i.putExtra("name", name.getText());
-                    } else if (name.getText()=="Candi Plaosan") {
+                    } else if (name.getText()=="Museum Affandi") {
                         i.putExtra("name", name.getText());
-                    } else if (name.getText()=="Pantai Baron") {
+                    }
+
+                    else if (name.getText()=="Candi Prambanan") {
                         i.putExtra("name", name.getText());
-                    } else if (name.getText()=="Kotagede") {
+                    } else if (name.getText()=="Candi Borobudur") {
                         i.putExtra("name", name.getText());
-                    } else if (name.getText()=="Goa Selarong") {
+                    } else if (name.getText()=="Candi Sambisari") {
                         i.putExtra("name", name.getText());
-                    }/*else if (name.getText()=="Goa Jomblang") {
+                    }
+
+                    else if (name.getText()=="The House of Raminten") {
                         i.putExtra("name", name.getText());
-                    }else if (name.getText()=="Taman Pintar Yogyakarta") {
+                    } else if (name.getText()=="Gudeg Yu Djum") {
                         i.putExtra("name", name.getText());
-                    }*/
+                    } else if (name.getText()=="The Kalimilk") {
+                        i.putExtra("name", name.getText());
+                    }
+
+                    else if (name.getText()=="Malioboro") {
+                        i.putExtra("name", name.getText());
+                    } else if (name.getText()=="Beringharjo") {
+                        i.putExtra("name", name.getText());
+                    } else if (name.getText()=="Kasongan") {
+                        i.putExtra("name", name.getText());
+                    }
 
                     v.getContext().startActivity(i);
                 }
