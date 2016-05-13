@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by Dias Aziz on 11/05/2016.
  */
-public class Oleh2Fragment extends Fragment {
+public class BelanjaFragment extends Fragment {
     private RecyclerAdapter adapter;
     private ArrayList<DataItem> personArrayList;
 
@@ -32,10 +32,8 @@ public class Oleh2Fragment extends Fragment {
     }
 
     private void setRecyclerViewData() {
-        personArrayList.add(new DataItem("Candi Prambanan", "Prambanan, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
-        personArrayList.add(new DataItem("Pantai Parangtritis", "Kecamatan Kretek, Bantul, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
-        personArrayList.add(new DataItem("Resor Kaliurang", "Desa Hargobinangun, Kec. Pakem, Sleman, Daerah Istimewa Yogyakarta", R.drawable.resorkaliurang));
-        personArrayList.add(new DataItem("Kotagede", "Kotagede, Daerah Istimewa Yogyakarta", R.drawable.kotagede));
-        personArrayList.add(new DataItem("Goa Selarong", "Guwosari, Pajangan, Bantul, Daerah Istimewa Yogyakarta", R.drawable.goajomblang));
+        personArrayList.add(new DataItem("Malioboro", "Jl. Malioboro, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
+        personArrayList.add(new DataItem("Beringharjo", "Jl. Pabringan, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
+        personArrayList.add(new DataItem("Kasongan", "Kasongan, Daerah Istimewa Yogyakarta", R.drawable.resorkaliurang));
     }
 }

@@ -32,15 +32,12 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
             case 4:
                 f = "Wisata Oleh-oleh";
                 break;
-            case 5:
-                f = "Wisata Alamnya";
-                break;
         }
         return f;
     }
     @Override
     public int getCount() {
-        return 6;
+        return 5;
     }
     @Override
     public Fragment getItem(int position) {
@@ -59,10 +56,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
                 f = new KulinerFragment();
                 break;
             case 4:
-                f = new Oleh2Fragment();
-                break;
-            case 5:
-                f = new AlamFragment();
+                f = new BelanjaFragment();
                 break;
          }
         return f;
