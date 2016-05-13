@@ -3,17 +3,19 @@ package com.pariwisatjogja.suhin_22.pariwisatjogja;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bluejamesbond.text.DocumentView;
 import com.bluejamesbond.text.style.TextAlignment;
+import com.google.android.gms.maps.model.LatLng;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -22,6 +24,8 @@ public class DetailActivity extends AppCompatActivity {
     private DocumentView dc;
     private Spannable span;
     private ImageView imageSet;
+    private LatLng lokasi;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +47,11 @@ public class DetailActivity extends AppCompatActivity {
         imageSet = (ImageView)findViewById(R.id.imageSet);
 
         Intent fromIn = getIntent();
-        String name = fromIn.getStringExtra("name");
+        name = fromIn.getStringExtra("name");
         txtdetail.setText(String.valueOf(name));
 
         if (name.equalsIgnoreCase("Candi Prambanan")) {
+            lokasi = new LatLng(-7.7557, 110.4896);
             yourstring = getResources().getString(R.string.prambanan_text);
             imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -98,5 +103,36 @@ public class DetailActivity extends AppCompatActivity {
         dc.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
         dc.setText(span);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            case R.id.action_settings: {
+                return true;
+            }
+            case R.id.action_user: {
+                if (name.equalsIgnoreCase("Candi Prambanan")) {
+                    lokasi = new LatLng(-7.7557, 110.4896);
+                }
+                Bundle args = new Bundle();
+                args.putParcelable("lokasi", lokasi);
+                Intent intent = new Intent(this, StreetViewActivity.class);
+                intent.putExtra("bundle", args);
+                startActivity(intent);
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

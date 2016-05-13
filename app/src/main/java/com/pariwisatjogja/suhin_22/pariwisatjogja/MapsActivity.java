@@ -83,6 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         Intent fromIn = getIntent();
         String namalokasi = fromIn.getStringExtra("namelokasi");
+        String lokasi = fromIn.getStringExtra("lokasi");
         Toast.makeText(MapsActivity.this, namalokasi, Toast.LENGTH_LONG).show();
     }
 
