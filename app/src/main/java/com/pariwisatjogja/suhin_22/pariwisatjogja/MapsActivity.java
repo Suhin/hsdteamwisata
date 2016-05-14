@@ -50,6 +50,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LocationManager locationManager;
     private Location mobileLocation;
     private Location netLocation;
+    private String namalokasi;
 
     //Distance
     ArrayList<LatLng> markerPoints;
@@ -84,7 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         Intent fromIn = getIntent();
-        String namalokasi = fromIn.getStringExtra("namelokasi");
+        namalokasi = fromIn.getStringExtra("namelokasi");
 
 
         Bundle bundle = getIntent().getParcelableExtra("bundle");
@@ -154,8 +155,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 if (mobileLocation != null) {
                     LatLng latLng = new LatLng(mobileLocation.getLatitude(), mobileLocation.getLongitude());
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0f));
-
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0f));
                 }
 
                 if (netLocation != null) {
@@ -351,9 +351,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for (int i=0;i<3;i++) {
             if (i<1) {
                 point = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 8.0f));
             } else if (i<2) {
                 point = lokasi;
+                if (namalokasi.equalsIgnoreCase("Pantai Indrayanti")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 9.0f));
+                } else if (namalokasi.equalsIgnoreCase("Pantai Parangtritis")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
+                } else if (namalokasi.equalsIgnoreCase("Pantai Siung")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 9.0f));
+                }
+
+                //Museum
+                else if (namalokasi.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 13.0f));
+                }else if (namalokasi.equalsIgnoreCase("Museum Sonobudoyo")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 13.0f));
+                }else if (namalokasi.equalsIgnoreCase("Museum Affandi")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 14.0f));
+                }
+
+                //Candi
+                else if (namalokasi.equalsIgnoreCase("Candi Prambanan")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 11.0f));
+                }else if (namalokasi.equalsIgnoreCase("Candi Borobudur")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 10.0f));
+                }else if (namalokasi.equalsIgnoreCase("Candi Sambisari")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 12.0f));
+                }
+
+                //Kuliner
+                else if (namalokasi.equalsIgnoreCase("The House of Raminten")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 13.0f));
+                }else if (namalokasi.equalsIgnoreCase("Gudeg Yu Djum")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 12.0f));
+                }else if (namalokasi.equalsIgnoreCase("The Kalimilk")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 14.0f));
+                }
+
+                //Belanja
+                else if (namalokasi.equalsIgnoreCase("Malioboro")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 12.0f));
+                }else if (namalokasi.equalsIgnoreCase("Beringharjo")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 12.0f));
+                }else if (namalokasi.equalsIgnoreCase("Kasongan")) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 11.0f));
+                }
             }
             markerPoints.add(point);
 
