@@ -56,7 +56,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
 
         //Pantai
         if (name.equalsIgnoreCase("Pantai Indrayanti")) {
-            //Slider Image
+            //Slider Imagee
             url_maps = new HashMap<String, String>();
             url_maps.put("Hannibal", "http://cdn3.nflximg.net/images/3093/2043093.jpg");
             url_maps.put("Big Bang Theory", "http://tvfiles.alphacoders.com/100/hdclearart-10.png");
