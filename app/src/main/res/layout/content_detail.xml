@@ -39,6 +39,12 @@
             app:documentView_insetPaddingRight="20dp"
             app:documentView_insetPaddingTop="10dp" />
 
+        <ImageView
+            android:id="@+id/picasso"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/home"/>
+
     </LinearLayout>
 
 

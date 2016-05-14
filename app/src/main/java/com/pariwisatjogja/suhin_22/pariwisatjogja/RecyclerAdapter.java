@@ -102,7 +102,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), name.getText().toString(), Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(v.getContext(), DetailActivity.class);
+                    Intent i = new Intent(v.getContext(), Theme.class);
 
                     if (name.getText()=="Pantai Indrayanti") {
                         i.putExtra("name", name.getText());
