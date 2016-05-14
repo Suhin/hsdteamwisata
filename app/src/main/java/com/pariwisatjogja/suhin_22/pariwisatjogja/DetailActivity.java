@@ -10,23 +10,34 @@ import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bluejamesbond.text.DocumentView;
 import com.bluejamesbond.text.style.TextAlignment;
 import com.google.android.gms.maps.model.LatLng;
 
-public class DetailActivity extends AppCompatActivity {
+import android.util.Log;
+import android.widget.Toast;
+
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.daimajia.slider.library.Tricks.ViewPagerEx;
+
+import java.util.HashMap;
+
+public class DetailActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
 
     private TextView txtdetail;
     private String yourstring;
     private DocumentView dc;
     private Spannable span;
-    private ImageView imageSet;
     private LatLng lokasi;
     private LatLng lokasistreetview;
     private String name;
+    private SliderLayout mDemoSlider;
+    private HashMap<String,String> url_maps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +46,9 @@ public class DetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-     /*   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(DetailActivity.this,MapsActivity.class);
-                DetailActivity.this.startActivity(i);
-            }
-        });*/
-
         txtdetail = (TextView)findViewById(R.id.txt_detail);
-        imageSet = (ImageView)findViewById(R.id.imageSet);
+        //Slider Image
+        mDemoSlider = (SliderLayout)findViewById(R.id.slider);
 
         Intent fromIn = getIntent();
         name = fromIn.getStringExtra("name");
@@ -53,16 +56,22 @@ public class DetailActivity extends AppCompatActivity {
 
         //Pantai
         if (name.equalsIgnoreCase("Pantai Indrayanti")) {
+            //Slider Image
+            url_maps = new HashMap<String, String>();
+            url_maps.put("Hannibal", "http://cdn3.nflximg.net/images/3093/2043093.jpg");
+            url_maps.put("Big Bang Theory", "http://tvfiles.alphacoders.com/100/hdclearart-10.png");
+            url_maps.put("House of Cards", "http://cdn3.nflximg.net/images/3093/2043093.jpg");
+            url_maps.put("Game of Thrones", "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
+            tambahSlidingImage();
+
             lokasi = new LatLng(-8.1501016,110.6121118);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Bundle args = new Bundle();
                     args.putParcelable("lokasi", lokasi);
-
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
                     i.putExtra("namelokasi", "Pantai Indrayanti");
                     i.putExtra("bundle", args);
@@ -72,7 +81,6 @@ public class DetailActivity extends AppCompatActivity {
         } else if (name.equalsIgnoreCase("Pantai Parangtritis")) {
             lokasi = new LatLng(-8.0252838,110.33373);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,7 +97,6 @@ public class DetailActivity extends AppCompatActivity {
         } else if (name.equalsIgnoreCase("Pantai Siung")) {
             lokasi = new LatLng(-8.1813422,110.6823995);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -109,7 +116,6 @@ public class DetailActivity extends AppCompatActivity {
         else if (name.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
             lokasi = new LatLng(-7.805224,110.36509);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -126,7 +132,6 @@ public class DetailActivity extends AppCompatActivity {
         }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
             lokasi = new LatLng(-7.802859,110.364003);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -143,7 +148,6 @@ public class DetailActivity extends AppCompatActivity {
         }else if (name.equalsIgnoreCase("Museum Affandi")) {
             lokasi = new LatLng(-7.783114,110.396425);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -163,7 +167,6 @@ public class DetailActivity extends AppCompatActivity {
         else if (name.equalsIgnoreCase("Candi Prambanan")) {
             lokasi = new LatLng(-7.751919,110.492006);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -180,7 +183,6 @@ public class DetailActivity extends AppCompatActivity {
         }else if (name.equalsIgnoreCase("Candi Borobudur")) {
             lokasi = new LatLng(-7.6081021,110.2037122);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -197,7 +199,6 @@ public class DetailActivity extends AppCompatActivity {
         }else if (name.equalsIgnoreCase("Candi Sambisari")) {
             lokasi = new LatLng(-7.7625465,110.4468635);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -217,7 +218,6 @@ public class DetailActivity extends AppCompatActivity {
         else if (name.equalsIgnoreCase("The House of Raminten")) {
             lokasi = new LatLng(-7.7851471,110.3716593);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -234,7 +234,6 @@ public class DetailActivity extends AppCompatActivity {
         }else if (name.equalsIgnoreCase("Gudeg Yu Djum")) {
             lokasi = new LatLng(-7.8046002,110.3666496);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -251,7 +250,6 @@ public class DetailActivity extends AppCompatActivity {
         }else if (name.equalsIgnoreCase("The Kalimilk")) {
             lokasi = new LatLng(-7.7629085,110.3797544);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -270,7 +268,6 @@ public class DetailActivity extends AppCompatActivity {
         else if (name.equalsIgnoreCase("Malioboro")) {
             lokasi = new LatLng(-7.793229,110.365748);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -287,7 +284,6 @@ public class DetailActivity extends AppCompatActivity {
         }else if (name.equalsIgnoreCase("Beringharjo")) {
             lokasi = new LatLng(-7.798672,110.365073);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -304,7 +300,6 @@ public class DetailActivity extends AppCompatActivity {
         }else if (name.equalsIgnoreCase("Kasongan")) {
             lokasi = new LatLng(-7.8450784,110.33561);
             yourstring = getResources().getString(R.string.prambanan_text);
-            imageSet.setImageResource(R.drawable.prambanan);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -326,6 +321,57 @@ public class DetailActivity extends AppCompatActivity {
         dc.setText(span);
 
     }
+
+    private void tambahSlidingImage() {
+        // ----------------------Tambah Sliding Image -----------------------------
+
+        for(String name : url_maps.keySet()){
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(url_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.Fit)
+                    .setOnSliderClickListener(this);
+
+            //add your extra information
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra",name);
+
+            mDemoSlider.addSlider(textSliderView);
+        }
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+        mDemoSlider.setDuration(4000);
+        mDemoSlider.addOnPageChangeListener(this);
+
+        // ----------------- Tambah Sliding Image ---------------------------
+    }
+
+    @Override
+    protected void onStop() {
+        // To prevent a memory leak on rotation, make sure to call stopAutoCycle() on the slider before activity or fragment is destroyed
+        mDemoSlider.stopAutoCycle();
+        super.onStop();
+    }
+
+    @Override
+    public void onSliderClick(BaseSliderView slider) {
+        Toast.makeText(this,slider.getBundle().get("extra") + "",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+    @Override
+    public void onPageSelected(int position) {
+        Log.d("Slider Demo", "Page Changed: " + position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -397,5 +443,6 @@ public class DetailActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
     }
 }
