@@ -25,6 +25,7 @@ public class DetailActivity extends AppCompatActivity {
     private Spannable span;
     private ImageView imageSet;
     private LatLng lokasi;
+    private LatLng lokasistreetview;
     private String name;
 
     @Override
@@ -344,51 +345,51 @@ public class DetailActivity extends AppCompatActivity {
             }
             case R.id.action_user: {
                 if (name.equalsIgnoreCase("Pantai Indrayanti")) {
-                    lokasi = new LatLng(-8.1501016,110.6121118);
+                    lokasistreetview = new LatLng(-7.6080523,110.2037833);
                 } else if (name.equalsIgnoreCase("Pantai Parangtritis")) {
-                    lokasi = new LatLng(-8.0252838,110.33373);
+                    lokasistreetview = new LatLng(-8.0252838,110.33373);
                 } else if (name.equalsIgnoreCase("Pantai Siung")) {
-                    lokasi = new LatLng(-8.1813422,110.6823995);
+                    lokasistreetview = new LatLng(-8.1813422,110.6823995);
                 }
 
                 //Museum
                 else if (name.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
-                    lokasi = new LatLng(-7.805224,110.36509);
+                    lokasistreetview = new LatLng(-7.805224,110.36509);
                 }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
-                    lokasi = new LatLng(-7.802859,110.364003);
+                    lokasistreetview = new LatLng(-7.802859,110.364003);
                 }else if (name.equalsIgnoreCase("Museum Affandi")) {
-                    lokasi = new LatLng(-7.783114,110.396425);
+                    lokasistreetview = new LatLng(-7.783114,110.396425);
                 }
 
                 //Candi
                 else if (name.equalsIgnoreCase("Candi Prambanan")) {
-                    lokasi = new LatLng(-7.751919,110.492006);
+                    lokasistreetview = new LatLng(-7.751919,110.492006);
                 }else if (name.equalsIgnoreCase("Candi Borobudur")) {
-                    lokasi = new LatLng(-7.6081021,110.2037122);
+                    lokasistreetview = new LatLng(-7.6081021,110.2037122);
                 }else if (name.equalsIgnoreCase("Candi Sambisari")) {
-                    lokasi = new LatLng(-7.7625465,110.4468635);
+                    lokasistreetview = new LatLng(-7.7625465,110.4468635);
                 }
 
                 //Kuliner
                 else if (name.equalsIgnoreCase("The House of Raminten")) {
-                    lokasi = new LatLng(-7.7851471,110.3716593);
+                    lokasistreetview = new LatLng(-7.7851471,110.3716593);
                 }else if (name.equalsIgnoreCase("Gudeg Yu Djum")) {
-                    lokasi = new LatLng(-7.8046002,110.3666496);
+                    lokasistreetview = new LatLng(-7.8046002,110.3666496);
                 }else if (name.equalsIgnoreCase("The Kalimilk")) {
-                    lokasi = new LatLng(-7.7629085,110.3797544);
+                    lokasistreetview = new LatLng(-7.7629085,110.3797544);
                 }
 
                 //Belanja
                 else if (name.equalsIgnoreCase("Malioboro")) {
-                    lokasi = new LatLng(-7.793229,110.365748);
+                    lokasistreetview = new LatLng(-7.793229,110.365748);
                 }else if (name.equalsIgnoreCase("Beringharjo")) {
-                    lokasi = new LatLng(-7.798672,110.365073);
+                    lokasistreetview = new LatLng(-7.798672,110.365073);
                 }else if (name.equalsIgnoreCase("Kasongan")) {
-                    lokasi = new LatLng(-7.8450784,110.33561);
+                    lokasistreetview = new LatLng(-7.8450784,110.33561);
                 }
 
                 Bundle args = new Bundle();
-                args.putParcelable("lokasi", lokasi);
+                args.putParcelable("lokasistreetview", lokasistreetview);
                 Intent intent = new Intent(this, StreetViewActivity.class);
                 intent.putExtra("bundle", args);
                 startActivity(intent);

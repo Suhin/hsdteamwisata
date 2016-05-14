@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback;
 import com.google.android.gms.maps.StreetViewPanorama;
@@ -15,16 +16,13 @@ import com.google.android.gms.maps.StreetViewPanoramaFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 public class StreetViewActivity extends FragmentActivity implements OnStreetViewPanoramaReadyCallback {
-    private TextView txtdetail;
-    private LatLng lokasi;
+    private LatLng lokasistreetview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_street_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
-        //txtdetail = (TextView)findViewById(R.id.textView);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,18 +32,18 @@ public class StreetViewActivity extends FragmentActivity implements OnStreetView
             }
         });
 
-        //txtdetail.setText(String.valueOf(lokasi));
         Bundle bundle = getIntent().getParcelableExtra("bundle");
-        lokasi = bundle.getParcelable("lokasi");
+        lokasistreetview = bundle.getParcelable("lokasistreetview");
         StreetViewPanoramaFragment streetViewPanoramaFragment =
                 (StreetViewPanoramaFragment) getFragmentManager()
                         .findFragmentById(R.id.streetviewpanorama);
         streetViewPanoramaFragment.getStreetViewPanoramaAsync(this);
+        Toast.makeText(StreetViewActivity.this, String.valueOf(lokasistreetview), Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onStreetViewPanoramaReady(StreetViewPanorama streetViewPanorama) {
 
-        streetViewPanorama.setPosition(lokasi);
+        streetViewPanorama.setPosition(lokasistreetview);
     }
 }
