@@ -207,10 +207,10 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         else if (name.equalsIgnoreCase("Candi Prambanan")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
-            url_maps.put("Museum Prambanan 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
-            url_maps.put("Museum Prambanan 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
-            url_maps.put("Museum Prambanan 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
-            url_maps.put("Museum Prambanan 4", "https://farm8.staticflickr.com/7375/26729516270_b3051da2df_z.jpg");
+            url_maps.put("Candi Prambanan 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
+            url_maps.put("Candi Prambanan 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
+            url_maps.put("Candi Prambanan 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
+            url_maps.put("Candi Prambanan 4", "https://farm8.staticflickr.com/7375/26729516270_b3051da2df_z.jpg");
             tambahSlidingImage();
 
             lokasi = new LatLng(-7.751919,110.492006);
@@ -231,10 +231,10 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Candi Borobudur")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
-            url_maps.put("Museum Borobudur 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
-            url_maps.put("Museum Borobudur 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
-            url_maps.put("Museum Borobudur 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
-            url_maps.put("Museum Borobudur 4", "https://farm8.staticflickr.com/7375/26729516270_b3051da2df_z.jpg");
+            url_maps.put("Candi Borobudur 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
+            url_maps.put("Candi Borobudur 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
+            url_maps.put("Candi Borobudur 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
+            url_maps.put("Candi Borobudur 4", "https://farm8.staticflickr.com/7375/26729516270_b3051da2df_z.jpg");
             tambahSlidingImage();
 
             lokasi = new LatLng(-7.6081021,110.2037122);
@@ -255,10 +255,10 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Candi Sambisari")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
-            url_maps.put("Museum Sambisari 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
-            url_maps.put("Museum Sambisari 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
-            url_maps.put("Museum Sambisari 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
-            url_maps.put("Museum Sambisari 4", "https://farm8.staticflickr.com/7375/26729516270_b3051da2df_z.jpg");
+            url_maps.put("Candi Sambisari 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
+            url_maps.put("Candi Sambisari 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
+            url_maps.put("Candi Sambisari 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
+            url_maps.put("Candi Sambisari 4", "https://farm8.staticflickr.com/7375/26729516270_b3051da2df_z.jpg");
             tambahSlidingImage();
 
             lokasi = new LatLng(-7.7625465,110.4468635);
