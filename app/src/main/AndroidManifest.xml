@@ -41,10 +41,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".SplashMaps"
+            android:label="@string/app_name" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+
+        </activity>
+        <activity
+            android:name=".Intro"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,12 +64,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashMaps"
-            android:label="@string/app_name" />
-        <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.NoActionBar" />
+
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -87,6 +97,8 @@
             android:name=".StreetViewActivity"
             android:label="@string/title_activity_street_view"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+
     </application>
 
 </manifest>

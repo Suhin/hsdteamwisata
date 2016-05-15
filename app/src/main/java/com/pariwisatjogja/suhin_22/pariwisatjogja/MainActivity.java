@@ -1,6 +1,7 @@
 package com.pariwisatjogja.suhin_22.pariwisatjogja;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -34,10 +35,21 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
 
     private LocationManager locationManager;
 
-
-    @Override
+   @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+       super.onCreate(savedInstanceState);
+//       SharedPreferences pref = getSharedPreferences("ActivityPREF", Intro.MODE_PRIVATE);
+//       if(pref.getBoolean("activity_executed", false)){
+//           Intent intent = new Intent(this, Intro.class);
+//           startActivity(intent);
+//           finish();
+//       } else {
+//           SharedPreferences.Editor ed = pref.edit();
+//           ed.putBoolean("activity_executed", true);
+//           ed.commit();
+//       }
+
+
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
