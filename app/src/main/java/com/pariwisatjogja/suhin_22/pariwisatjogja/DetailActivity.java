@@ -57,6 +57,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         picasso = (ImageView) findViewById(R.id.picasso);
+        picasso.setVisibility(View.INVISIBLE);
 
 //        Picasso.with(this)
 //                .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")

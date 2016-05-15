@@ -124,4 +124,10 @@
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
 
+    <ImageView
+        android:id="@+id/picasso"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/home"/>
+
 </android.support.design.widget.CoordinatorLayout>
