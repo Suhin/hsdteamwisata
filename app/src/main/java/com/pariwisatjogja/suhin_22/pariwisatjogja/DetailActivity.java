@@ -100,7 +100,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             lokasi = new LatLng(-8.1501016,110.6121118);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
-            location_share = l1.toString() + ", " + l2.toString();
+            location_share = l1.toString() + "," + l2.toString();
 
             yourstring = getResources().getString(R.string.prambanan_text);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -130,7 +130,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             lokasi = new LatLng(-8.0252838,110.33373);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
-            location_share = l1.toString() + ", " + l2.toString();
+            location_share = l1.toString() + "," + l2.toString();
 
 
             yourstring = getResources().getString(R.string.prambanan_text);
@@ -511,6 +511,50 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             });
         }
 
+        if (name.equalsIgnoreCase("Pantai Indrayanti")) {
+            lokasistreetview = new LatLng(-7.6080523,110.2037833);
+        } else if (name.equalsIgnoreCase("Pantai Parangtritis")) {
+            lokasistreetview = new LatLng(-8.0252838,110.33373);
+        } else if (name.equalsIgnoreCase("Pantai Siung")) {
+            lokasistreetview = new LatLng(-8.1813422,110.6823995);
+        }
+
+        //Museum
+        else if (name.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
+            lokasistreetview = new LatLng(-7.805224,110.36509);
+        }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
+            lokasistreetview = new LatLng(-7.802859,110.364003);
+        }else if (name.equalsIgnoreCase("Museum Affandi")) {
+            lokasistreetview = new LatLng(-7.783114,110.396425);
+        }
+
+        //Candi
+        else if (name.equalsIgnoreCase("Candi Prambanan")) {
+            lokasistreetview = new LatLng(-7.751919,110.492006);
+        }else if (name.equalsIgnoreCase("Candi Borobudur")) {
+            lokasistreetview = new LatLng(-7.6081021,110.2037122);
+        }else if (name.equalsIgnoreCase("Candi Sambisari")) {
+            lokasistreetview = new LatLng(-7.7625465,110.4468635);
+        }
+
+        //Kuliner
+        else if (name.equalsIgnoreCase("The House of Raminten")) {
+            lokasistreetview = new LatLng(-7.7851471,110.3716593);
+        }else if (name.equalsIgnoreCase("Gudeg Yu Djum")) {
+            lokasistreetview = new LatLng(-7.8046002,110.3666496);
+        }else if (name.equalsIgnoreCase("The Kalimilk")) {
+            lokasistreetview = new LatLng(-7.7629085,110.3797544);
+        }
+
+        //Belanja
+        else if (name.equalsIgnoreCase("Malioboro")) {
+            lokasistreetview = new LatLng(-7.793229,110.365748);
+        }else if (name.equalsIgnoreCase("Beringharjo")) {
+            lokasistreetview = new LatLng(-7.798672,110.365073);
+        }else if (name.equalsIgnoreCase("Kasongan")) {
+            lokasistreetview = new LatLng(-7.8450784,110.33561);
+        }
+
         //Share
         share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -520,7 +564,19 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             }
         });
 
+        //panorama
+        panorama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putParcelable("lokasistreetview", lokasistreetview);
+                Intent intent = new Intent(DetailActivity.this, StreetViewActivity.class);
+                intent.putExtra("bundle", args);
+                startActivity(intent);
 
+                tapBarMenu.close();
+            }
+        });
 
         dc = (DocumentView) findViewById(R.id.documentView);
         span = new SpannableString(yourstring);
@@ -540,18 +596,18 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
                 mBitmap, "Image Description", null);
 
         Uri google_map = Uri.parse("geo:"+deskripsi);
-        deskripsi = google_map.toString();
+
 
         Uri uri = Uri.parse(path);
         share_action = new Intent();
-        share_action.setType("text/plain");
+        //share_action.setType("text/plain");
         share_action.setAction(Intent.ACTION_SEND);
-        //share_action.putExtra(Intent.EXTRA_STREAM, uri);
+        share_action.putExtra(Intent.EXTRA_STREAM, uri);
 
         share_action.putExtra(Intent.EXTRA_SUBJECT,"Link");
-        share_action.putExtra(Intent.EXTRA_TEXT, "https://www.codeofaninja.com");
+        share_action.putExtra(Intent.EXTRA_TEXT, "http://maps.google.co.in/maps?q="+deskripsi);
         //share_action.putExtra(Intent.EXTRA_TEXT, deskripsi);
-        //share_action.setType("image/*");
+        share_action.setType("image/*");
         //share_action.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivity(Intent.createChooser(share_action, "Share Image"));
 
@@ -617,69 +673,4 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            case R.id.action_settings: {
-                return true;
-            }
-            case R.id.action_user: {
-                if (name.equalsIgnoreCase("Pantai Indrayanti")) {
-                    lokasistreetview = new LatLng(-7.6080523,110.2037833);
-                } else if (name.equalsIgnoreCase("Pantai Parangtritis")) {
-                    lokasistreetview = new LatLng(-8.0252838,110.33373);
-                } else if (name.equalsIgnoreCase("Pantai Siung")) {
-                    lokasistreetview = new LatLng(-8.1813422,110.6823995);
-                }
-
-                //Museum
-                else if (name.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
-                    lokasistreetview = new LatLng(-7.805224,110.36509);
-                }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
-                    lokasistreetview = new LatLng(-7.802859,110.364003);
-                }else if (name.equalsIgnoreCase("Museum Affandi")) {
-                    lokasistreetview = new LatLng(-7.783114,110.396425);
-                }
-
-                //Candi
-                else if (name.equalsIgnoreCase("Candi Prambanan")) {
-                    lokasistreetview = new LatLng(-7.751919,110.492006);
-                }else if (name.equalsIgnoreCase("Candi Borobudur")) {
-                    lokasistreetview = new LatLng(-7.6081021,110.2037122);
-                }else if (name.equalsIgnoreCase("Candi Sambisari")) {
-                    lokasistreetview = new LatLng(-7.7625465,110.4468635);
-                }
-
-                //Kuliner
-                else if (name.equalsIgnoreCase("The House of Raminten")) {
-                    lokasistreetview = new LatLng(-7.7851471,110.3716593);
-                }else if (name.equalsIgnoreCase("Gudeg Yu Djum")) {
-                    lokasistreetview = new LatLng(-7.8046002,110.3666496);
-                }else if (name.equalsIgnoreCase("The Kalimilk")) {
-                    lokasistreetview = new LatLng(-7.7629085,110.3797544);
-                }
-
-                //Belanja
-                else if (name.equalsIgnoreCase("Malioboro")) {
-                    lokasistreetview = new LatLng(-7.793229,110.365748);
-                }else if (name.equalsIgnoreCase("Beringharjo")) {
-                    lokasistreetview = new LatLng(-7.798672,110.365073);
-                }else if (name.equalsIgnoreCase("Kasongan")) {
-                    lokasistreetview = new LatLng(-7.8450784,110.33561);
-                }
-
-                Bundle args = new Bundle();
-                args.putParcelable("lokasistreetview", lokasistreetview);
-                Intent intent = new Intent(this, StreetViewActivity.class);
-                intent.putExtra("bundle", args);
-                startActivity(intent);
-            }
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }
 }
