@@ -1,7 +1,12 @@
 package com.pariwisatjogja.suhin_22.pariwisatjogja;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +15,7 @@ import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bluejamesbond.text.DocumentView;
@@ -24,13 +30,15 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.michaldrabik.tapbarmenulib.TapBarMenu;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
 public class DetailActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
 
     private TextView txtdetail;
-    private String yourstring;
+    private String yourstring, location_share;
     private DocumentView dc;
     private Spannable span;
     private LatLng lokasi;
@@ -38,6 +46,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
     private String name;
     private SliderLayout mDemoSlider;
     private HashMap<String,String> url_maps;
+    private TapBarMenu tapBarMenu;
+    private ImageView share, panorama, picasso;
+    private Intent share_action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +56,22 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         setContentView(R.layout.activity_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        picasso = (ImageView) findViewById(R.id.picasso);
+
+//        Picasso.with(this)
+//                .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+//                .into(picasso);
+        //TapBarMenu
+        tapBarMenu = (TapBarMenu) findViewById(R.id.tapBarMenu);
+        share = (ImageView) findViewById(R.id.share);
+        panorama = (ImageView) findViewById(R.id.panorama);
+        tapBarMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tapBarMenu.toggle();
+            }
+        });
+
 
         txtdetail = (TextView)findViewById(R.id.txt_detail);
         //Slider Image
@@ -58,13 +85,22 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         if (name.equalsIgnoreCase("Pantai Indrayanti")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Pantai Indrayanti 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Pantai Indrayanti 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Pantai Indrayanti 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
             url_maps.put("Pantai Indrayanti 4", "https://farm8.staticflickr.com/7375/26729516270_b3051da2df_z.jpg");
             tambahSlidingImage();
 
+
+            //parsing Latlng to Share
             lokasi = new LatLng(-8.1501016,110.6121118);
+            Double l1=lokasi.latitude;
+            Double l2=lokasi.longitude;
+            location_share = l1.toString() + ", " + l2.toString();
+
             yourstring = getResources().getString(R.string.prambanan_text);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +117,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         } else if (name.equalsIgnoreCase("Pantai Parangtritis")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Pantai Parangtritis 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Pantai Parangtritis 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Pantai Parangtritis 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -88,6 +127,11 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             tambahSlidingImage();
 
             lokasi = new LatLng(-8.0252838,110.33373);
+            Double l1=lokasi.latitude;
+            Double l2=lokasi.longitude;
+            location_share = l1.toString() + ", " + l2.toString();
+
+
             yourstring = getResources().getString(R.string.prambanan_text);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +149,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         } else if (name.equalsIgnoreCase("Pantai Siung")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Pantai Siung 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Pantai Siung 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Pantai Siung 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -132,6 +179,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         else if (name.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Museum Keraton Yogyakarta 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Museum Keraton Yogyakarta 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Museum Keraton Yogyakarta 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -156,6 +206,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Museum Sonobudoyo 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Museum Sonobudoyo 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Museum Sonobudoyo 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -180,6 +233,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Museum Affandi")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Museum Affandi 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Museum Affandi 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Museum Affandi 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -207,6 +263,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         else if (name.equalsIgnoreCase("Candi Prambanan")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Museum Prambanan 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Museum Prambanan 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Museum Prambanan 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -231,6 +290,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Candi Borobudur")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Museum Borobudur 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Museum Borobudur 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Museum Borobudur 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -255,6 +317,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Candi Sambisari")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Museum Sambisari 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Museum Sambisari 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Museum Sambisari 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -282,6 +347,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         else if (name.equalsIgnoreCase("The House of Raminten")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("The House of Raminten 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("The House of Raminten 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("The House of Raminten 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -306,6 +374,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Gudeg Yu Djum")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Gudeg Yu Djum 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Gudeg Yu Djum 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Gudeg Yu Djum 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -330,6 +401,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("The Kalimilk")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("The Kalimilk 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("The Kalimilk 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("The Kalimilk 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -356,6 +430,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         else if (name.equalsIgnoreCase("Malioboro")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Malioboro 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Malioboro 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Malioboro 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -380,6 +457,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Beringharjo")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Beringharjo 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Beringharjo 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Beringharjo 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -404,6 +484,9 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }else if (name.equalsIgnoreCase("Kasongan")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
+            Picasso.with(this)
+                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .into(picasso);
             url_maps.put("Kasongan 1", "https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg");
             url_maps.put("Kasongan 2", "https://farm8.staticflickr.com/7491/26729521710_7226e9b6dd_z.jpg");
             url_maps.put("Kasongan 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
@@ -427,10 +510,50 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             });
         }
 
+        //Share
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tapBarMenu.close();
+                setupShareIntent(location_share);
+            }
+        });
+
+
+
         dc = (DocumentView) findViewById(R.id.documentView);
         span = new SpannableString(yourstring);
         dc.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
         dc.setText(span);
+
+    }
+
+    //Share Methode
+    private void setupShareIntent(String deskripsi) {
+        picasso = (ImageView) findViewById(R.id.picasso);
+
+        Drawable mDrawable = picasso.getDrawable();
+        Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
+
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(),
+                mBitmap, "Image Description", null);
+
+        Uri google_map = Uri.parse("geo:"+deskripsi);
+        deskripsi = google_map.toString();
+
+        Uri uri = Uri.parse(path);
+        share_action = new Intent();
+        share_action.setType("text/plain");
+        share_action.setAction(Intent.ACTION_SEND);
+        //share_action.putExtra(Intent.EXTRA_STREAM, uri);
+
+        share_action.putExtra(Intent.EXTRA_SUBJECT,"Link");
+        share_action.putExtra(Intent.EXTRA_TEXT, "https://www.codeofaninja.com");
+        //share_action.putExtra(Intent.EXTRA_TEXT, deskripsi);
+        //share_action.setType("image/*");
+        //share_action.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(share_action, "Share Image"));
+
 
     }
 
@@ -452,6 +575,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
                     .putString("extra",name);
 
             mDemoSlider.addSlider(textSliderView);
+
         }
         mDemoSlider.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
