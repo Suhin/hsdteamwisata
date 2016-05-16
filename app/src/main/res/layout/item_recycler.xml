@@ -69,8 +69,7 @@
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@mipmap/line"
-                android:layout_toLeftOf="@+id/text_home" />
+                android:src="@mipmap/line2" />
 
             <TextView
                 android:id="@+id/job"

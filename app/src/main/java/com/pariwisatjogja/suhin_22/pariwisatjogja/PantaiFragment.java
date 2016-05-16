@@ -34,8 +34,8 @@ public class PantaiFragment extends Fragment {
 
 
     private void setRecyclerViewData() {
-        personArrayList.add(new DataItem("Pantai Indrayanti", "Prambanan, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
-        personArrayList.add(new DataItem("Pantai Parangtritis", "Kretek, Bantul, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
-        personArrayList.add(new DataItem("Pantai Siung", "Desa Hargobinangun, Kec. Pakem, Sleman, Daerah Istimewa Yogyakarta", R.drawable.resorkaliurang));
+        personArrayList.add(new DataItem("Pantai Indrayanti", "Prambanan, Daerah Istimewa Yogyakarta", R.drawable.p_ind_));
+        personArrayList.add(new DataItem("Pantai Parangtritis", "Kretek, Bantul, Daerah Istimewa Yogyakarta", R.drawable.p_prt_1));
+        personArrayList.add(new DataItem("Pantai Siung", "Desa Hargobinangun, Kec. Pakem, Sleman, Daerah Istimewa Yogyakarta", R.drawable.p_siu_4));
     }
 }

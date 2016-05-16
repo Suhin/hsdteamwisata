@@ -32,8 +32,8 @@ public class MuseumFragment extends Fragment {
     }
 
     private void setRecyclerViewData() {
-        personArrayList.add(new DataItem("Museum Keraton Yogyakarta", "Yogyakarta, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
-        personArrayList.add(new DataItem("Museum Sonobudoyo", "Yogyakarta, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
-        personArrayList.add(new DataItem("Museum Affandi", "Jl. Laksda Adisutjipto, Daerah Istimewa Yogyakarta", R.drawable.resorkaliurang));
+        personArrayList.add(new DataItem("Museum Keraton Yogyakarta", "Yogyakarta, Daerah Istimewa Yogyakarta", R.drawable.mus_ker_3));
+        personArrayList.add(new DataItem("Museum Sonobudoyo", "Yogyakarta, Daerah Istimewa Yogyakarta", R.drawable.mus_son_1));
+        personArrayList.add(new DataItem("Museum Affandi", "Jl. Laksda Adisutjipto, Daerah Istimewa Yogyakarta", R.drawable.mus_aff_3));
     }
 }

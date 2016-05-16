@@ -117,6 +117,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
 
         //to show current location in the map
+        mMap.setMyLocationEnabled(true);
 
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 
