@@ -32,8 +32,8 @@ public class BelanjaFragment extends Fragment {
     }
 
     private void setRecyclerViewData() {
-        personArrayList.add(new DataItem("Malioboro", "Jl. Malioboro, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
-        personArrayList.add(new DataItem("Beringharjo", "Jl. Pabringan, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
-        personArrayList.add(new DataItem("Kasongan", "Kasongan, Daerah Istimewa Yogyakarta", R.drawable.resorkaliurang));
+        personArrayList.add(new DataItem("Malioboro", "Jl. Malioboro, Daerah Istimewa Yogyakarta", R.drawable.blj_mlb_2));
+        personArrayList.add(new DataItem("Beringharjo", "Jl. Pabringan, Daerah Istimewa Yogyakarta", R.drawable.blj_ber_1));
+        personArrayList.add(new DataItem("Kasongan", "Kasongan, Daerah Istimewa Yogyakarta", R.drawable.blj_kas_1));
     }
 }

@@ -33,8 +33,8 @@ public class CandiFragment extends Fragment {
     }
 
     private void setRecyclerViewData() {
-        personArrayList.add(new DataItem("Candi Prambanan", "Prambanan, Daerah Istimewa Yogyakarta", R.drawable.prambanan));
-        personArrayList.add(new DataItem("Candi Borobudur", "Magelang, Daerah Istimewa Yogyakarta", R.drawable.pantaiparangtritis));
-        personArrayList.add(new DataItem("Candi Sambisari", "Purwomartani, Sleman, Daerah Istimewa Yogyakarta", R.drawable.resorkaliurang));
+        personArrayList.add(new DataItem("Candi Prambanan", "Prambanan, Daerah Istimewa Yogyakarta", R.drawable.c_pra_2));
+        personArrayList.add(new DataItem("Candi Borobudur", "Magelang, Daerah Istimewa Yogyakarta", R.drawable.c_bor_4));
+        personArrayList.add(new DataItem("Candi Sambisari", "Purwomartani, Sleman, Daerah Istimewa Yogyakarta", R.drawable.c_sam_3));
     }
 }
