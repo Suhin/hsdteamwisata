@@ -30,11 +30,10 @@ dependencies {
     compile 'com.github.bluejamesbond:textjustify-android:2.1.1'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.android.support:support-v4:23.3.0'
-    compile 'com.android.support:support-v4:+'
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.github.michaldrabik:tapbarmenu:1.0.5'
     compile 'com.github.paolorotolo:appintro:3.4.0'
-    compile 'it.michelelacorte.swipeablecard:library:2.3.0@aar'
+    compile 'com.google.android.gms:play-services:8.4.0'
 }
