@@ -15,16 +15,33 @@
 
 
         <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="500dp">
+            android:layout_height="500dp"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blogimage"
+                    android:gravity="top" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
 
                 <TextView
                     android:paddingTop="5dp"
@@ -33,10 +50,13 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/text_margin"
                     android:textColor="@color/colorAccent"
-                    android:text="@string/tiny_text"/>
+                    android:text="@string/tiny_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
 
                 <com.bluejamesbond.text.DocumentView
                     android:id="@+id/documentView"
+                    android:layout_below="@+id/txt_detail"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     app:documentView_antialias="true"
@@ -51,6 +71,8 @@
                     app:documentView_insetPaddingLeft="5dp"
                     app:documentView_insetPaddingRight="20dp"
                     app:documentView_insetPaddingTop="10dp" />
+
+                </RelativeLayout>
 
             </LinearLayout>
 
