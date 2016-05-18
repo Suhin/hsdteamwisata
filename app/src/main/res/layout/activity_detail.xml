@@ -93,6 +93,9 @@
         app:menu_labels_ellipsize="end"
         app:menu_labels_singleLine="true"
         app:menu_backgroundColor="#ccffffff"
+        app:menu_colorNormal="@color/colorAccent"
+        app:menu_colorPressed="@color/colorAccentDark"
+        app:menu_colorRipple="#FFFFFF"
         app:menu_fab_label="Menu">
 
         <com.github.clans.fab.FloatingActionButton
@@ -102,6 +105,9 @@
             android:src="@mipmap/panorama"
             app:fab_size="mini"
             app:fab_label="Panorama"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorAccentDark"
+            app:fab_colorRipple="#FFFFFF"
             />
 
         <com.github.clans.fab.FloatingActionButton
@@ -110,7 +116,10 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/route"
             app:fab_size="mini"
-            app:fab_label="Petunjuk Lokasi" />
+            app:fab_label="Petunjuk Lokasi"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorAccentDark"
+            app:fab_colorRipple="#FFFFFF"/>
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/share"
@@ -118,7 +127,10 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/share"
             app:fab_size="mini"
-            app:fab_label="Share Lokasi" />
+            app:fab_label="Share Lokasi"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorAccentDark"
+            app:fab_colorRipple="#FFFFFF"/>
 
     </com.github.clans.fab.FloatingActionMenu>
 
