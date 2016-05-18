@@ -79,14 +79,14 @@
                         android:layout_height="28dp"
                         android:layout_below="@+id/txt_detail"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_media_play" />
+                        android:src="@mipmap/time" />
 
                     <TextView
                         android:id="@+id/tv_distance_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_detail"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="10dp"
                         android:layout_toEndOf="@+id/imageDistance"
                         android:layout_toRightOf="@+id/imageDistance"
                         android:text="Distance: 23 km"
@@ -95,18 +95,18 @@
                     <ImageView
                         android:id="@+id/imageDistance2"
                         android:layout_alignParentLeft="true"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_below="@+id/imageDistance"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_media_play" />
+                        android:layout_marginTop="12dp"
+                        android:src="@mipmap/me" />
 
                     <TextView
                         android:id="@+id/tv_lokasi_saya"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/imageDistance"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="12dp"
                         android:layout_toEndOf="@+id/imageDistance2"
                         android:layout_toRightOf="@+id/imageDistance2"
                         android:text="Distance: 25 km"
@@ -115,18 +115,18 @@
                     <ImageView
                         android:id="@+id/imageDistance3"
                         android:layout_alignParentLeft="true"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_below="@+id/imageDistance2"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_media_play" />
+                        android:layout_marginTop="14dp"
+                        android:src="@mipmap/lokasi" />
 
                     <TextView
                         android:id="@+id/tv_lokasi_tujuan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/imageDistance2"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="14dp"
                         android:layout_toEndOf="@+id/imageDistance3"
                         android:layout_toRightOf="@+id/imageDistance3"
                         android:text="Distance: 25 km"

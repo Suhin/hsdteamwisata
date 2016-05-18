@@ -99,15 +99,16 @@
             android:id="@+id/panorama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_dialog_info"
+            android:src="@mipmap/panorama"
             app:fab_size="mini"
-            app:fab_label="Panorama" />
+            app:fab_label="Panorama"
+            />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/petunjuklokasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_dialog_info"
+            android:src="@mipmap/route"
             app:fab_size="mini"
             app:fab_label="Petunjuk Lokasi" />
 
@@ -115,7 +116,7 @@
             android:id="@+id/share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_dialog_info"
+            android:src="@mipmap/share"
             app:fab_size="mini"
             app:fab_label="Share Lokasi" />
 
