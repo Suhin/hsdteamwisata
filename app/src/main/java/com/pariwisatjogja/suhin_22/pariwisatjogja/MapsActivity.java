@@ -327,7 +327,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // Adding all the points in the route to LineOptions
                 lineOptions.addAll(points);
                 lineOptions.width(7);
-                lineOptions.color(Color.rgb(121,85,72));
+                lineOptions.color(Color.rgb(244, 143, 177));
             }
 
             tvDistanceDuration.setText("Distance:"+distance + ", Duration:"+duration);

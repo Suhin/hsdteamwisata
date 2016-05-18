@@ -23,15 +23,6 @@ public class StreetViewActivity extends FragmentActivity implements OnStreetView
         setContentView(R.layout.activity_street_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         Bundle bundle = getIntent().getParcelableExtra("bundle");
         lokasistreetview = bundle.getParcelable("lokasistreetview");
         StreetViewPanoramaFragment streetViewPanoramaFragment =

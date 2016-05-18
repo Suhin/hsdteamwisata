@@ -237,4 +237,5 @@
     <string name="title_activity_googlestreetactivity">googlestreetactivity</string>
     <string name="title_activity_street_view">StreetViewActivity</string>
     <string name="title_activity_tes_maps">Map</string>
+    <string name="open_map">Petunjuk Lokasi</string>
 </resources>

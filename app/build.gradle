@@ -33,7 +33,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
-    compile 'com.github.michaldrabik:tapbarmenu:1.0.5'
     compile 'com.github.paolorotolo:appintro:3.4.0'
     compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.github.clans:fab:1.6.3'
 }

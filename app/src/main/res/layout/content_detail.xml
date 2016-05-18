@@ -22,7 +22,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="4dp">
 
@@ -31,12 +31,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/blogimage"
-                    android:gravity="top" />
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    tools:context="com.pariwisatjogja.suhin_22.pariwisatjogja.DetailActivity"
+                    app:cameraBearing="0"
+                    app:cameraTargetLat="37.4220041"
+                    app:cameraTargetLng="-122.0862515"
+                    app:mapType="normal"
+                    app:uiCompass="true"
+                    app:uiRotateGestures="true"
+                    app:uiScrollGestures="true"
+                    app:uiTiltGestures="true"
+                    app:uiZoomControls="true"
+                    app:uiZoomGestures="true"
+                    tools:ignore="MissingPrefix"
+                    />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -44,8 +56,9 @@
                     android:padding="8dp">
 
                 <TextView
-                    android:paddingTop="5dp"
+                    android:paddingTop="2dp"
                     android:id="@+id/txt_detail"
+                    android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/text_margin"
@@ -54,23 +67,99 @@
                     android:textSize="14sp"
                     android:textStyle="bold"/>
 
-                <com.bluejamesbond.text.DocumentView
-                    android:id="@+id/documentView"
-                    android:layout_below="@+id/txt_detail"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    app:documentView_antialias="true"
-                    app:documentView_cacheConfig="auto_quality"
-                    app:documentView_hyphen="-"
-                    app:documentView_lineHeightMultiplier="2.0"
-                    app:documentView_maxLines="100"
-                    app:documentView_offsetX="10dp"
-                    app:documentView_offsetY="10dp"
-                    app:documentView_insetPadding="10dp"
-                    app:documentView_insetPaddingBottom="10dp"
-                    app:documentView_insetPaddingLeft="5dp"
-                    app:documentView_insetPaddingRight="20dp"
-                    app:documentView_insetPaddingTop="10dp" />
+                    <View android:id="@+id/primerdivisor"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/colorPrimary" />
+
+                    <ImageView
+                        android:id="@+id/imageDistance"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_below="@+id/txt_detail"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_media_play" />
+
+                    <TextView
+                        android:id="@+id/tv_distance_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txt_detail"
+                        android:layout_marginTop="16dp"
+                        android:layout_toEndOf="@+id/imageDistance"
+                        android:layout_toRightOf="@+id/imageDistance"
+                        android:text="Distance: 23 km"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/imageDistance2"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_below="@+id/imageDistance"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_media_play" />
+
+                    <TextView
+                        android:id="@+id/tv_lokasi_saya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imageDistance"
+                        android:layout_marginTop="16dp"
+                        android:layout_toEndOf="@+id/imageDistance2"
+                        android:layout_toRightOf="@+id/imageDistance2"
+                        android:text="Distance: 25 km"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/imageDistance3"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_below="@+id/imageDistance2"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_media_play" />
+
+                    <TextView
+                        android:id="@+id/tv_lokasi_tujuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imageDistance2"
+                        android:layout_marginTop="16dp"
+                        android:layout_toEndOf="@+id/imageDistance3"
+                        android:layout_toRightOf="@+id/imageDistance3"
+                        android:text="Distance: 25 km"
+                        android:textSize="14sp" />
+
+                    <com.bluejamesbond.text.DocumentView
+                        android:id="@+id/documentView"
+                        android:layout_below="@+id/tv_distance_time"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:documentView_antialias="true"
+                        app:documentView_cacheConfig="auto_quality"
+                        app:documentView_hyphen="-"
+                        app:documentView_lineHeightMultiplier="2.0"
+                        app:documentView_maxLines="100"
+                        app:documentView_offsetX="10dp"
+                        app:documentView_offsetY="10dp"
+                        app:documentView_insetPadding="10dp"
+                        app:documentView_insetPaddingBottom="10dp"
+                        app:documentView_insetPaddingLeft="5dp"
+                        app:documentView_insetPaddingRight="20dp"
+                        app:documentView_insetPaddingTop="10dp" />
+
+                    <Button
+                        android:id="@+id/petunjuk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tv_lokasi_tujuan"
+                        android:layout_marginTop="32dp"
+                        android:text="@string/open_map"
+                        android:textColor="@color/white"
+                        android:background="@color/colorAccent"/>
 
                 </RelativeLayout>
 
