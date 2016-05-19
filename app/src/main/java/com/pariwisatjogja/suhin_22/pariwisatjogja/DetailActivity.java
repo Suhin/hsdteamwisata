@@ -16,6 +16,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -112,6 +113,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
     private com.github.clans.fab.FloatingActionButton panorama;
     private com.github.clans.fab.FloatingActionButton petunjuklokasi;
     private com.github.clans.fab.FloatingActionButton share;
+    private Button petunjukmap;
 
     private List<FloatingActionMenu> menus = new ArrayList<>();
     private Handler mUiHandler = new Handler();
@@ -128,10 +130,12 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         panorama = (com.github.clans.fab.FloatingActionButton)findViewById(R.id.panorama);
         petunjuklokasi = (com.github.clans.fab.FloatingActionButton)findViewById(R.id.petunjuklokasi);
         share = (com.github.clans.fab.FloatingActionButton)findViewById(R.id.share);
+        petunjukmap = (Button) findViewById(R.id.petunjuk);
 
         panorama.setOnClickListener(clickListener);
         petunjuklokasi.setOnClickListener(clickListener);
         share.setOnClickListener(clickListener);
+        petunjukmap.setOnClickListener(clickListener);
 
         int delay = 400;
         for (final FloatingActionMenu menu : menus) {
@@ -148,7 +152,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             @Override
             public void onClick(View v) {
                 if (menuRed.isOpened()) {
-                    Toast.makeText(DetailActivity.this, menuRed.getMenuButtonLabelText(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DetailActivity.this, menuRed.getMenuButtonLabelText(), Toast.LENGTH_SHORT).show();
                 }
                 menuRed.toggle(true);
             }
@@ -211,7 +215,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         } else if (name.equalsIgnoreCase("Pantai Parangtritis")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -229,7 +233,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         } else if (name.equalsIgnoreCase("Pantai Siung")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -247,7 +251,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         }
         //Museum
         else if (name.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
@@ -267,7 +271,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -284,7 +288,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         }else if (name.equalsIgnoreCase("Museum Affandi")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -301,7 +305,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         }
 
         //Candi
@@ -323,7 +327,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         }else if (name.equalsIgnoreCase("Candi Borobudur")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -343,7 +347,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         }else if (name.equalsIgnoreCase("Candi Sambisari")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -361,7 +365,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
         }
 
         //Kuliner
@@ -382,7 +386,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
 
         }else if (name.equalsIgnoreCase("Gudeg Yu Djum")) {
             //Slider Imagee
@@ -401,7 +405,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
 
         }else if (name.equalsIgnoreCase("The Kalimilk")) {
             //Slider Imagee
@@ -420,7 +424,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
 
         }
 
@@ -440,7 +444,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
 
         }else if (name.equalsIgnoreCase("Beringharjo")) {
             //Slider Imagee
@@ -458,7 +462,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
 
         }else if (name.equalsIgnoreCase("Kasongan")) {
             //Slider Imagee
@@ -477,7 +481,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.prambanan_text);
+            yourstring = getResources().getString(R.string.sample_text);
 
         }
 
@@ -526,7 +530,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         }
 
         dc = (DocumentView) findViewById(R.id.documentView);
-        span = new SpannableString("");
+        span = new SpannableString(yourstring);
         dc.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
         dc.setText(span);
     }
@@ -552,6 +556,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
                     break;
                 case R.id.share:
                     setupShareIntent(location_share);
+                    break;
+                case R.id.petunjuk:
+                    Bundle args3 = new Bundle();
+                    args3.putParcelable("lokasi", lokasi);
+                    Intent petunjukmap = new Intent(DetailActivity.this, MapsActivity.class);
+                    petunjukmap.putExtra("namelokasi", "Pantai Indrayanti");
+                    petunjukmap.putExtra("bundle", args3);
+                    DetailActivity.this.startActivity(petunjukmap);
                     break;
             }
         }
@@ -675,15 +687,6 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         {
             onLocationSet(netLocation);
         }
-
-        /*mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-
-                LatLng mobilelocation = new LatLng(mobileLocation.getLatitude(), mobileLocation.getLongitude());
-                Toast.makeText(getApplicationContext(), mobilelocation.toString(), Toast.LENGTH_LONG).show();
-            }
-        });*/
 
         mMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
 

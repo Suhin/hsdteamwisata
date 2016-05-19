@@ -75,8 +75,8 @@
                     <ImageView
                         android:id="@+id/imageDistance"
                         android:layout_alignParentLeft="true"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_below="@+id/txt_detail"
                         android:layout_marginTop="10dp"
                         android:src="@mipmap/time" />
@@ -106,7 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/imageDistance"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="10dp"
                         android:layout_toEndOf="@+id/imageDistance2"
                         android:layout_toRightOf="@+id/imageDistance2"
                         android:text="Distance: 25 km"
@@ -118,23 +118,30 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_below="@+id/imageDistance2"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="25dp"
                         android:src="@mipmap/lokasi" />
 
                     <TextView
                         android:id="@+id/tv_lokasi_tujuan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imageDistance2"
-                        android:layout_marginTop="14dp"
+                        android:layout_below="@+id/tv_lokasi_saya"
+                        android:layout_marginTop="9dp"
                         android:layout_toEndOf="@+id/imageDistance3"
                         android:layout_toRightOf="@+id/imageDistance3"
                         android:text="Distance: 25 km"
                         android:textSize="14sp" />
 
+                    <View android:id="@+id/primerdivisor2"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:layout_below="@+id/tv_lokasi_tujuan"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/colorPrimary" />
+
                     <com.bluejamesbond.text.DocumentView
                         android:id="@+id/documentView"
-                        android:layout_below="@+id/tv_distance_time"
+                        android:layout_below="@+id/tv_lokasi_tujuan"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         app:documentView_antialias="true"
@@ -159,6 +166,7 @@
                         android:layout_marginTop="32dp"
                         android:text="@string/open_map"
                         android:textColor="@color/white"
+                        android:layout_alignParentBottom="true"
                         android:background="@color/colorAccent"/>
 
                 </RelativeLayout>
