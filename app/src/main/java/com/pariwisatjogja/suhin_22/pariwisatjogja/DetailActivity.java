@@ -52,7 +52,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -67,7 +66,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import java.util.HashMap;
 import java.util.Locale;
 
 
@@ -75,11 +73,6 @@ import org.json.JSONObject;
 
 import android.graphics.Color;
 import android.os.AsyncTask;
-
-
-import android.support.v4.content.ContextCompat;
-
-import android.view.ContextThemeWrapper;
 
 public class DetailActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener, OnMapReadyCallback, LocationListener {
 
@@ -124,6 +117,22 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        ConnectivityManager ConnectionManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=ConnectionManager.getActiveNetworkInfo();
+        if(networkInfo != null && networkInfo.isConnected()==true )
+        {
+            Toast.makeText(DetailActivity.this, "Network Available", Toast.LENGTH_LONG).show();
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+
+        }
+        else
+        {
+            Toast.makeText(DetailActivity.this, "Network Not Available", Toast.LENGTH_LONG).show();
+            //    finish();
+        }
+
         //Tambah Menu
         menuRed = (FloatingActionMenu)findViewById(R.id.menu_red);
 
@@ -137,7 +146,28 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         share.setOnClickListener(clickListener);
         petunjukmap.setOnClickListener(clickListener);
 
-        int delay = 400;
+        //Distance
+        tvDistanceDuration = (TextView) findViewById(R.id.tv_distance_time);
+        tvlokasisaya = (TextView) findViewById(R.id.tv_lokasi_saya);
+        tvlokasitujuan = (TextView) findViewById(R.id.tv_lokasi_tujuan);
+        //distance
+        // Initializing
+        markerPoints = new ArrayList<LatLng>();
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        picasso = (ImageView) findViewById(R.id.picasso);
+        picasso.setVisibility(View.INVISIBLE);
+
+        txtdetail = (TextView)findViewById(R.id.txt_detail);
+        //Slider Image
+        mDemoSlider = (SliderLayout)findViewById(R.id.slider);
+
+        Intent fromIn = getIntent();
+        name = fromIn.getStringExtra("name");
+        txtdetail.setText(String.valueOf("Informasi " + name));
+
+        int delay = 100;
         for (final FloatingActionMenu menu : menus) {
             mUiHandler.postDelayed(new Runnable() {
                 @Override
@@ -158,43 +188,6 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             }
         });
 
-        ConnectivityManager ConnectionManager=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo=ConnectionManager.getActiveNetworkInfo();
-        if(networkInfo != null && networkInfo.isConnected()==true )
-        {
-            Toast.makeText(DetailActivity.this, "Network Available", Toast.LENGTH_LONG).show();
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
-
-            //Distance
-            tvDistanceDuration = (TextView) findViewById(R.id.tv_distance_time);
-            tvlokasisaya = (TextView) findViewById(R.id.tv_lokasi_saya);
-            tvlokasitujuan = (TextView) findViewById(R.id.tv_lokasi_tujuan);
-            //distance
-            // Initializing
-            markerPoints = new ArrayList<LatLng>();
-
-        }
-        else
-        {
-            Toast.makeText(DetailActivity.this, "Network Not Available", Toast.LENGTH_LONG).show();
-            //    finish();
-        }
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        picasso = (ImageView) findViewById(R.id.picasso);
-        picasso.setVisibility(View.INVISIBLE);
-
-        txtdetail = (TextView)findViewById(R.id.txt_detail);
-        //Slider Image
-        mDemoSlider = (SliderLayout)findViewById(R.id.slider);
-
-        Intent fromIn = getIntent();
-        name = fromIn.getStringExtra("name");
-        txtdetail.setText(String.valueOf("Informasi " + name));
-
         //Pantai
         if (name.equalsIgnoreCase("Pantai Indrayanti")) {
             //Slider Imagee
@@ -207,15 +200,15 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Pantai Indrayanti 3", "https://farm8.staticflickr.com/7239/26934795661_800a8b5714_z.jpg");
             url_maps.put("Pantai Indrayanti 4", "https://farm8.staticflickr.com/7375/26729516270_b3051da2df_z.jpg");
             tambahSlidingImage();
-
+            yourstring = getResources().getString(R.string.sample_text);
 
             //parsing Latlng to Share
             lokasi = new LatLng(-8.1501016,110.6121118);
+            lokasistreetview = new LatLng(-7.6080523,110.2037833);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         } else if (name.equalsIgnoreCase("Pantai Parangtritis")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -227,13 +220,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Pantai Parangtritis 3", "https://farm8.staticflickr.com/7598/26729516490_c55a1c5185_b.jpg");
             url_maps.put("Pantai Parangtritis 4", "https://farm8.staticflickr.com/7454/26969866236_570cdfbfa1_b.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-8.0252838,110.33373);
+            lokasistreetview = new LatLng(-8.0252838,110.33373);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         } else if (name.equalsIgnoreCase("Pantai Siung")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -245,13 +239,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Pantai Siung 3", "https://farm8.staticflickr.com/7496/26909152512_7763725873_z.jpg");
             url_maps.put("Pantai Siung 4", "https://farm8.staticflickr.com/7647/26729517250_1829747bd3_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-8.1813422,110.6823995);
+            lokasistreetview = new LatLng(-8.1813422,110.6823995);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         }
         //Museum
         else if (name.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
@@ -265,13 +260,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Museum Keraton Yogyakarta 3", "https://farm8.staticflickr.com/7140/26935173031_c472940875_z.jpg");
             url_maps.put("Museum Keraton Yogyakarta 4", "https://farm8.staticflickr.com/7511/26397961314_19b35421b0_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.805224,110.36509);
+            lokasistreetview = new LatLng(-7.805224,110.36509);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -282,13 +278,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Museum Sonobudoyo 2", "https://farm8.staticflickr.com/7616/27006732566_b6237bfa51_z.jpg");
             url_maps.put("Museum Sonobudoyo 3", "https://farm8.staticflickr.com/7393/26434488644_8ec2e7a7ea_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.802859,110.364003);
+            lokasistreetview = new LatLng(-7.802859,110.364003);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         }else if (name.equalsIgnoreCase("Museum Affandi")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -299,13 +296,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Museum Affandi 2", "https://farm8.staticflickr.com/7647/26971881101_1914fe3bff_z.jpg");
             url_maps.put("Museum Affandi 3", "https://farm8.staticflickr.com/7245/26971885361_df758d020d_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.783114,110.396425);
+            lokasistreetview = new LatLng(-7.783114,110.396425);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         }
 
         //Candi
@@ -321,13 +319,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Candi Prambanan 4", "https://farm8.staticflickr.com/7786/26935177991_10da3a6729_z.jpg");
             url_maps.put("Candi Prambanan 5", "https://farm8.staticflickr.com/7786/26935177991_10da3a6729_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.751919,110.492006);
+            lokasistreetview = new LatLng(-7.751919,110.492006);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         }else if (name.equalsIgnoreCase("Candi Borobudur")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -341,13 +340,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Candi Borobudur 5", "https://farm8.staticflickr.com/7023/26399607543_5e74e825d1_z.jpg");
             url_maps.put("Candi Borobudur 6", "https://farm8.staticflickr.com/7513/26397967854_915f9c1585_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.6081021,110.2037122);
+            lokasistreetview = new LatLng(-7.6081021,110.2037122);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         }else if (name.equalsIgnoreCase("Candi Sambisari")) {
             //Slider Imagee
             url_maps = new HashMap<String, String>();
@@ -359,13 +359,14 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Candi Sambisari 3", "https://farm8.staticflickr.com/7201/26397965054_cf05f1e163_z.jpg");
             url_maps.put("Candi Sambisari 4", "https://farm8.staticflickr.com/7266/26399605903_15c8e3d335_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.7625465,110.4468635);
+            lokasistreetview = new LatLng(-7.7625465,110.4468635);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
         }
 
         //Kuliner
@@ -380,13 +381,13 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("The House of Raminten 3", "https://farm8.staticflickr.com/7487/26397962904_7d7a9b3bb0_z.jpg");
             url_maps.put("The House of Raminten 4", "https://farm8.staticflickr.com/7363/26397962504_a63c3fa262_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.7851471,110.3716593);
+            lokasistreetview = new LatLng(-7.7851471,110.3716593);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
-
-            yourstring = getResources().getString(R.string.sample_text);
 
         }else if (name.equalsIgnoreCase("Gudeg Yu Djum")) {
             //Slider Imagee
@@ -399,13 +400,13 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Gudeg Yu Djum 3", "https://farm8.staticflickr.com/7508/26397963434_c55f8de56f_z.jpg");
             url_maps.put("Gudeg Yu Djum 4", "https://farm8.staticflickr.com/7758/26397964054_518e311003_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.8046002,110.3666496);
+            lokasistreetview = new LatLng(-7.8046002,110.3666496);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
-
-            yourstring = getResources().getString(R.string.sample_text);
 
         }else if (name.equalsIgnoreCase("The Kalimilk")) {
             //Slider Imagee
@@ -418,14 +419,13 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("The Kalimilk 3", "https://farm8.staticflickr.com/7516/26979978611_288d28cb4f_z.jpg");
             url_maps.put("The Kalimilk 4", "https://farm8.staticflickr.com/7627/26773981820_8ece33e769_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.7629085,110.3797544);
+            lokasistreetview = new LatLng(-7.7629085,110.3797544);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
-
-            yourstring = getResources().getString(R.string.sample_text);
-
         }
 
         else if (name.equalsIgnoreCase("Malioboro")) {
@@ -438,13 +438,13 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Malioboro 2", "https://farm8.staticflickr.com/7579/26399608993_cae4f8eb24_z.jpg");
             url_maps.put("Malioboro 3", "https://farm8.staticflickr.com/7538/27003660585_0c6d878d98_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.793229,110.365748);
+            lokasistreetview = new LatLng(-7.793229,110.365748);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
-
-            yourstring = getResources().getString(R.string.sample_text);
 
         }else if (name.equalsIgnoreCase("Beringharjo")) {
             //Slider Imagee
@@ -456,13 +456,13 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Beringharjo 2", "https://farm8.staticflickr.com/7717/26955884372_3d88fd109d_z.jpg");
             url_maps.put("Beringharjo 3", "https://farm8.staticflickr.com/7192/26446572613_f32205180d_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.798672,110.365073);
+            lokasistreetview = new LatLng(-7.798672,110.365073);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
-
-            yourstring = getResources().getString(R.string.sample_text);
 
         }else if (name.equalsIgnoreCase("Kasongan")) {
             //Slider Imagee
@@ -475,64 +475,49 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             url_maps.put("Kasongan 3", "https://farm8.staticflickr.com/7612/26776286420_a633e9f06d_z.jpg");
             url_maps.put("Kasongan 4", "https://farm8.staticflickr.com/7266/26776286940_0fdc2c1efa_z.jpg");
             tambahSlidingImage();
+            yourstring = getResources().getString(R.string.sample_text);
 
             lokasi = new LatLng(-7.8450784,110.33561);
+            lokasistreetview = new LatLng(-7.8450784,110.33561);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
 
-            yourstring = getResources().getString(R.string.sample_text);
-
-        }
-
-        if (name.equalsIgnoreCase("Pantai Indrayanti")) {
-            lokasistreetview = new LatLng(-7.6080523,110.2037833);
-        } else if (name.equalsIgnoreCase("Pantai Parangtritis")) {
-            lokasistreetview = new LatLng(-8.0252838,110.33373);
-        } else if (name.equalsIgnoreCase("Pantai Siung")) {
-            lokasistreetview = new LatLng(-8.1813422,110.6823995);
-        }
-
-        //Museum
-        else if (name.equalsIgnoreCase("Museum Keraton Yogyakarta")) {
-            lokasistreetview = new LatLng(-7.805224,110.36509);
-        }else if (name.equalsIgnoreCase("Museum Sonobudoyo")) {
-            lokasistreetview = new LatLng(-7.802859,110.364003);
-        }else if (name.equalsIgnoreCase("Museum Affandi")) {
-            lokasistreetview = new LatLng(-7.783114,110.396425);
-        }
-
-        //Candi
-        else if (name.equalsIgnoreCase("Candi Prambanan")) {
-            lokasistreetview = new LatLng(-7.751919,110.492006);
-        }else if (name.equalsIgnoreCase("Candi Borobudur")) {
-            lokasistreetview = new LatLng(-7.6081021,110.2037122);
-        }else if (name.equalsIgnoreCase("Candi Sambisari")) {
-            lokasistreetview = new LatLng(-7.7625465,110.4468635);
-        }
-
-        //Kuliner
-        else if (name.equalsIgnoreCase("The House of Raminten")) {
-            lokasistreetview = new LatLng(-7.7851471,110.3716593);
-        }else if (name.equalsIgnoreCase("Gudeg Yu Djum")) {
-            lokasistreetview = new LatLng(-7.8046002,110.3666496);
-        }else if (name.equalsIgnoreCase("The Kalimilk")) {
-            lokasistreetview = new LatLng(-7.7629085,110.3797544);
-        }
-
-        //Belanja
-        else if (name.equalsIgnoreCase("Malioboro")) {
-            lokasistreetview = new LatLng(-7.793229,110.365748);
-        }else if (name.equalsIgnoreCase("Beringharjo")) {
-            lokasistreetview = new LatLng(-7.798672,110.365073);
-        }else if (name.equalsIgnoreCase("Kasongan")) {
-            lokasistreetview = new LatLng(-7.8450784,110.33561);
         }
 
         dc = (DocumentView) findViewById(R.id.documentView);
         span = new SpannableString(yourstring);
         dc.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
         dc.setText(span);
+    }
+
+    private void tambahSlidingImage() {
+        // ----------------------Tambah Sliding Image -----------------------------
+
+        for(String nameSliding : url_maps.keySet()){
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(url_maps.get(nameSliding))
+                    .setScaleType(BaseSliderView.ScaleType.Fit)
+                    .setOnSliderClickListener(this);
+
+            //add your extra information
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra",nameSliding);
+
+            mDemoSlider.addSlider(textSliderView);
+
+        }
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+        mDemoSlider.setDuration(4000);
+        mDemoSlider.addOnPageChangeListener(this);
+
+        // ----------------- Tambah Sliding Image ---------------------------
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
@@ -596,35 +581,6 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
         startActivity(Intent.createChooser(share_action, "Share Image"));
 
 
-    }
-
-    private void tambahSlidingImage() {
-        // ----------------------Tambah Sliding Image -----------------------------
-
-        for(String nameSliding : url_maps.keySet()){
-            TextSliderView textSliderView = new TextSliderView(this);
-            // initialize a SliderLayout
-            textSliderView
-                    .description(name)
-                    .image(url_maps.get(nameSliding))
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
-                    .setOnSliderClickListener(this);
-
-            //add your extra information
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle()
-                    .putString("extra",nameSliding);
-
-            mDemoSlider.addSlider(textSliderView);
-
-        }
-        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
-        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
-        mDemoSlider.setDuration(4000);
-        mDemoSlider.addOnPageChangeListener(this);
-
-        // ----------------- Tambah Sliding Image ---------------------------
     }
 
     @Override
