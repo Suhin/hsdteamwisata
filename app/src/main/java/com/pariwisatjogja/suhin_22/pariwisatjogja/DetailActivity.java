@@ -204,7 +204,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
 
             //parsing Latlng to Share
             lokasi = new LatLng(-8.1501016,110.6121118);
-            lokasistreetview = new LatLng(-7.6080523,110.2037833);
+            lokasistreetview = new LatLng(-8.1501016,110.6121118);
             Double l1=lokasi.latitude;
             Double l2=lokasi.longitude;
             location_share = l1.toString() + "," + l2.toString();
@@ -213,7 +213,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7583/26729522990_209bc0c760.jpg")
                     .into(picasso);
             url_maps.put("Pantai Parangtritis 1", "https://farm8.staticflickr.com/7583/26729522990_209bc0c760.jpg");
             url_maps.put("Pantai Parangtritis 2", "https://farm8.staticflickr.com/7334/26397611054_71989864ab_b.jpg");
@@ -232,7 +232,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7566/26397609744_3ac978d5f6_z.jpg")
                     .into(picasso);
             url_maps.put("Pantai Siung 1", "https://farm8.staticflickr.com/7566/26397609744_3ac978d5f6_z.jpg");
             url_maps.put("Pantai Siung 2", "https://farm8.staticflickr.com/7260/26909153892_9e2691c137_z.jpg");
@@ -253,7 +253,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7140/26935173031_c472940875_z.jpg")
                     .into(picasso);
             url_maps.put("Museum Keraton Yogyakarta 1", "https://farm8.staticflickr.com/7140/26935173031_c472940875_z.jpg");
             url_maps.put("Museum Keraton Yogyakarta 2", "https://farm8.staticflickr.com/7346/27003644755_41ab06c99e_z.jpg");
@@ -272,7 +272,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7543/27040180475_ed438b2320_z.jpg")
                     .into(picasso);
             url_maps.put("Museum Sonobudoyo 1", "https://farm8.staticflickr.com/7543/27040180475_ed438b2320_z.jpg");
             url_maps.put("Museum Sonobudoyo 2", "https://farm8.staticflickr.com/7616/27006732566_b6237bfa51_z.jpg");
@@ -290,7 +290,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7209/26765954390_6c48436f97_z.jpg")
                     .into(picasso);
             url_maps.put("Museum Affandi 1", "https://farm8.staticflickr.com/7209/26765954390_6c48436f97_z.jpg");
             url_maps.put("Museum Affandi 2", "https://farm8.staticflickr.com/7647/26971881101_1914fe3bff_z.jpg");
@@ -311,7 +311,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7178/26935177251_2ab92a7894_z.jpg")
                     .into(picasso);
             url_maps.put("Candi Prambanan 1", "https://farm8.staticflickr.com/7178/26935177251_2ab92a7894_z.jpg");
             url_maps.put("Candi Prambanan 2", "https://farm8.staticflickr.com/7754/26399606653_b26ca4c6e4_z.jpg");
@@ -331,7 +331,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7432/27003660335_02487dc1ab_z.jpg")
                     .into(picasso);
             url_maps.put("Candi Borobudur 1", "https://farm8.staticflickr.com/7432/27003660335_02487dc1ab_z.jpg");
             url_maps.put("Candi Borobudur 2", "https://farm8.staticflickr.com/7636/26399608263_f1ba34de8e_z.jpg");
@@ -352,7 +352,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7719/27003656345_c0448df394_z.jpg")
                     .into(picasso);
             url_maps.put("Candi Sambisari 1", "https://farm8.staticflickr.com/7719/27003656345_c0448df394_z.jpg");
             url_maps.put("Candi Sambisari 2", "https://farm8.staticflickr.com/7116/26397964584_8c11c07d15_z.jpg");
@@ -374,7 +374,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7258/26397962084_d2bb01be54_z.jpg")
                     .into(picasso);
             url_maps.put("The House of Raminten 1", "https://farm8.staticflickr.com/7258/26397962084_d2bb01be54_z.jpg");
             url_maps.put("The House of Raminten 2", "https://farm8.staticflickr.com/7720/26397961784_e3958a9199_z.jpg");
@@ -393,7 +393,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7790/26397963224_f116ce55b9_z.jpg")
                     .into(picasso);
             url_maps.put("Gudeg Yu Djum 1", "https://farm8.staticflickr.com/7790/26397963224_f116ce55b9_z.jpg");
             url_maps.put("Gudeg Yu Djum 2", "https://farm8.staticflickr.com/7746/26970106746_402e50495a_z.jpg");
@@ -412,7 +412,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7653/26773981310_4f0de919e8_z.jpg")
                     .into(picasso);
             url_maps.put("The Kalimilk 1", "https://farm8.staticflickr.com/7653/26773981310_4f0de919e8_z.jpg");
             url_maps.put("The Kalimilk 2", "https://farm8.staticflickr.com/7599/26773981970_858c4d4193_z.jpg");
@@ -432,7 +432,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7388/26399609233_989af95966_z.jpg")
                     .into(picasso);
             url_maps.put("Malioboro 1", "https://farm8.staticflickr.com/7388/26399609233_989af95966_z.jpg");
             url_maps.put("Malioboro 2", "https://farm8.staticflickr.com/7579/26399608993_cae4f8eb24_z.jpg");
@@ -450,7 +450,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7630/26775720500_75ceae0435_z.jpg")
                     .into(picasso);
             url_maps.put("Beringharjo 1", "https://farm8.staticflickr.com/7630/26775720500_75ceae0435_z.jpg");
             url_maps.put("Beringharjo 2", "https://farm8.staticflickr.com/7717/26955884372_3d88fd109d_z.jpg");
@@ -468,7 +468,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
             //Slider Imagee
             url_maps = new HashMap<String, String>();
             Picasso.with(this)
-                    .load("https://farm8.staticflickr.com/7672/26729522490_d23a532a3f_z.jpg")
+                    .load("https://farm8.staticflickr.com/7374/26982348421_b66c44cc0a_z.jpg")
                     .into(picasso);
             url_maps.put("Kasongan 1", "https://farm8.staticflickr.com/7374/26982348421_b66c44cc0a_z.jpg");
             url_maps.put("Kasongan 2", "https://farm8.staticflickr.com/7253/26776286130_886e0773f6_z.jpg");
@@ -535,7 +535,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
                     Bundle args2 = new Bundle();
                     args2.putParcelable("lokasi", lokasi);
                     Intent i = new Intent(DetailActivity.this, MapsActivity.class);
-                    i.putExtra("namelokasi", "Pantai Indrayanti");
+                    i.putExtra("namelokasi", name);
                     i.putExtra("bundle", args2);
                     DetailActivity.this.startActivity(i);
                     break;
@@ -546,7 +546,7 @@ public class DetailActivity extends AppCompatActivity implements BaseSliderView.
                     Bundle args3 = new Bundle();
                     args3.putParcelable("lokasi", lokasi);
                     Intent petunjukmap = new Intent(DetailActivity.this, MapsActivity.class);
-                    petunjukmap.putExtra("namelokasi", "Pantai Indrayanti");
+                    petunjukmap.putExtra("namelokasi", name);
                     petunjukmap.putExtra("bundle", args3);
                     DetailActivity.this.startActivity(petunjukmap);
                     break;
